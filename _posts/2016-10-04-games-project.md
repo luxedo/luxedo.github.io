@@ -19,7 +19,9 @@ I've been working on some retro games. I managed to release 3 games:
 
 Since it was quite fun to do them, I had the idea of making increasingly more challenging games up until remaking Doom.
 I'm listing some games that I find interesting to remake:
+
 * ~~Spacewar!~~ - done!
+
 * ~~Asteroids~~ - done!
 * ~~PONG~~ - done!
 * Hamurabi
