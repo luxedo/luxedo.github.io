@@ -20,7 +20,7 @@ description: A simple Jekyll theme based on potatoes and hackers
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: "ArmlessJohn404"
-facebook_username: "uiz.e.amaral"
+facebook_username: "luiz.e.amaral"
 twitter_username: "ArmlessJohn404"
 gplus_id: "115327941224049762448"
 linkedin_id: "luiz-amaral-85351328"
@@ -35,10 +35,8 @@ collections:
 columns: 8
 offset: 2
 
-
 # Build settings
 markdown: kramdown
-theme: potato-hacker-jekyll-template
 gems:
   - jekyll-feed
 exclude:
