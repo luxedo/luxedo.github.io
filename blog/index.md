@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 
-description: Test page
+title:
+description: My Blog
 ---
 {% for item in site.posts %}
   <article class="blog-post">

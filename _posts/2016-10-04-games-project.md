@@ -24,6 +24,7 @@ I'm listing some games that I find interesting to remake:
 #### * ~~PONG~~ - done!
 #### * Hamurabi
 #### * Collosal Cave Adventure
+#### * Lunar Lander
 #### * The Oregon Trail
 #### * Tetris
 #### * E.T the Extra-Terrestrial
