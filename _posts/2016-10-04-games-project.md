@@ -19,22 +19,22 @@ I've been working on some retro games. I managed to release 3 games:
 
 Since it was quite fun to do them, I had the idea of making increasingly more challenging games up until remaking Doom.
 I'm listing some games that I find interesting to remake:
-#### * ~~Spacewar!~~ - done!
-#### * ~~Asteroids~~ - done!
-#### * ~~PONG~~ - done!
-#### * Hamurabi
-#### * Collosal Cave Adventure
-#### * Lunar Lander
-#### * The Oregon Trail
-#### * Tetris
-#### * E.T the Extra-Terrestrial
-#### * Pac-Man
-#### * Space Invaders
-#### * Donkey Kong
-#### * Pokemon
-#### * Super Mario Bros
-#### * TopGear
-#### * Street Fighter
-#### * Wolfenstein/Doom
+* ~~Spacewar!~~ - done!
+* ~~Asteroids~~ - done!
+* ~~PONG~~ - done!
+* Hamurabi
+* Collosal Cave Adventure
+* Lunar Lander
+* The Oregon Trail
+* Tetris
+* E.T the Extra-Terrestrial
+* Pac-Man
+* Space Invaders
+* Donkey Kong
+* Pokemon
+* Super Mario Bros
+* TopGear
+* Street Fighter
+* Wolfenstein/Doom
 
 I included games for their historical significance and also because of their different genres. Well see how far on the list I can go.
