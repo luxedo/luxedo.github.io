@@ -16,29 +16,39 @@
 title: "Luiz Eduardo Amaral"
 author: "Luiz Eduardo Amaral"
 email: "luizamaral306@gmail.com"
-description: A simple Jekyll theme based on potatoes and hackers
+description: My portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: "ArmlessJohn404"
+url: "http://luxedo.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+
+github_username: "luxedo"
 facebook_username: "luiz.e.amaral"
 twitter_username: "ArmlessJohn404"
-gplus_id: "115327941224049762448"
 linkedin_id: "luiz-amaral-85351328"
 
-# theme repository
-theme_repository: "https://github.com/ArmlessJohn404/potato-hacker-jekyll-template"
+theme: jekyll-theme-potato-hacker
+remote_theme: luxedo/jekyll-theme-potato-hacker
+theme_repository: "https://github.com/luxedo/jekyll-theme-potato-hacker"
+theme_base: "dark"        # Theme pallente (light | dark)
+theme_switch: on         # Show color switch (on | off)
 
-# extra settings
+# collections
 collections:
-  projects:
+  dropdown:
     output: true
-columns: 8
-offset: 2
+  items:
+    output: true
+
+blog: on
+# avatar_image: "assets/img/avatar.jpg"
+# avatar_description: "My name is Popotato and I'm a HACKER."
 
 # Build settings
+excerpt_separator: "<!--more-->"
 markdown: kramdown
-gems:
-  - jekyll-feed
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 exclude:
   - Gemfile
   - Gemfile.lock
