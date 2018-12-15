@@ -3,8 +3,7 @@ layout: post
 title:  "Games Project"
 date:   2016-11-04 00:20:15 -0200
 ---
-# Last month
-I've been working on some retro games. I managed to release 3 games:
+Last month I've been working on some retro games. I managed to release 3 games:
 <!--more-->
 * [pong-almost-from-scratch](https://luxedo.github.io/pong-almost-from-scratch/)
 

@@ -2,5 +2,6 @@
 title: Pong almost from scratch
 description: An attempt of remaking the game Pong with modern programming languages
 dropdown: Games
-redirect_to: "https://luxedo.github.io/pong-almost-from-scratch/"
+layout: page
 ---
+{% remote_markdown https://raw.githubusercontent.com/luxedo/pong-almost-from-scratch/master/README.md %}

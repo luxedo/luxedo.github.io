@@ -1,5 +1,5 @@
 ---
 layout: blog-index
-title: My Blog
+title: Luxedo's
 description: Test page
 ---

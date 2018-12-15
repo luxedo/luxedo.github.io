@@ -39,8 +39,8 @@ collections:
     output: true
 
 blog: on
-# avatar_image: "assets/img/avatar.jpg"
-# avatar_description: "My name is Popotato and I'm a HACKER."
+avatar_image: "assets/img/avatar.jpg"
+avatar_description: "My name is Luiz Amaral and I like making and breaking stuff."
 
 # Build settings
 excerpt_separator: "<!--more-->"
