@@ -1,7 +1,7 @@
 ---
 title: D&D toy projects
 description: A couple of projects I made while playing D&D
-dropdown: Web
+dropdown: Other
 layout: page
 ---
 ## trueDice
