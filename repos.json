@@ -1,0 +1,70 @@
+[{
+    "name": "1337-rou13773",
+    "dropdown": "Other",
+    "order": 1,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/1337-rou13773)"
+  },
+
+  {
+    "name": "spacewar-almost-from-scratch",
+    "dropdown": "Games",
+    "order": 1
+  },
+  {
+    "name": "asteroids-almost-from-scratch",
+    "dropdown": "Games",
+    "order": 2
+  },
+  {
+    "name": "hamurabi-almost-from-scratch",
+    "dropdown": "Games",
+    "order": 4
+  },
+  {
+    "name": "pong-almost-from-scratch",
+    "dropdown": "Games",
+    "order": 3
+  },
+
+  {
+    "name": "two-neurons-worm",
+    "dropdown": "Web",
+    "order": 1
+  },
+  {
+    "name": "calcuMLator",
+    "dropdown": "Web",
+    "order": 2
+  },
+
+  {
+    "name": "RPistepper",
+    "dropdown": "Open Source",
+    "order": 1,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/RPistepper)"
+  },
+  {
+    "name": "RPi_mcp3008",
+    "dropdown": "Open Source",
+    "order": 2,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/RPi_mcp3008)"
+  },
+  {
+    "name": "fakeRPiGPIO",
+    "dropdown": "Open Source",
+    "order": 3,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/fakeRPiGPIO)"
+  },
+  {
+    "name": "prettycode",
+    "dropdown": "Open Source",
+    "order": 4,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/prettycode)"
+  },
+  {
+    "name": "jekyll-theme-potato-hacker",
+    "dropdown": "Open Source",
+    "order": 5,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/jekyll-theme-potato-hacker)"
+  }
+]

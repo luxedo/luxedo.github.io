@@ -1,9 +1,23 @@
 ---
+layout: page
 title: fakeRPiGPIO
 description: Fake RPi.GPIO module for testing
+tags: 
 dropdown: Open Source
-layout: page
+order: 3
 ---
-{% remote_markdown https://raw.githubusercontent.com/luxedo/fakeRPiGPIO/master/README.md %}
-----
+<!-- Automatically generated. Run search_repo.rb to rebuild -->
+
+
+
+This package is used to simulate the [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO) module.
+This package only contains the functions in the RPi.GPIO package without the functionality. Useful to debug code outside the RPi.
+To avoid printing the callings to the package, set `VERBOSE` to `False`:
+```python
+from RPi import GPIO
+GPIO.VERBOSE = False
+more_code()
+```
+
+---
 Check out the [repo](https://github.com/luxedo/fakeRPiGPIO)

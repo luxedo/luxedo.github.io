@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hello
+title: Luxedo's
 description: My webpage
 ---
 # My name is Luiz Eduardo Amaral
