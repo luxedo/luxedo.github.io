@@ -1,12 +1,12 @@
 ---
 layout: page
 title: calcuMLator
-description: An intelligently dumb calculator
-tags: 
+description: An intelligently dumb calculator that uses machine learning
+tags: ["calculator", "machine-learning", "machine-learning-algorithms", "regression-models", "microservice", "calculations"]
 dropdown: Web
 order: 2
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 

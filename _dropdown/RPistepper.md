@@ -2,11 +2,11 @@
 layout: page
 title: RPistepper
 description: Library to control stepper motors with a RPI
-tags: 
+tags: ["raspberry-pi", "rpi", "stepper-motor", "motor", "gpio", "uln2803a", "python", "python-library"]
 dropdown: Open Source
 order: 1
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 

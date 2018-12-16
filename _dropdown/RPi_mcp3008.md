@@ -2,11 +2,11 @@
 layout: page
 title: RPi_mcp3008
 description: RPi_mcp3008 is a library to listen to the MCP3008 A/D converter chip, as described in the datasheet.
-tags: 
+tags: ["rpi", "wiring", "mcp3008", "raspberry-pi", "gpio", "analog-digital-communication", "spi", "python", "python-library"]
 dropdown: Open Source
 order: 2
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 RPi_mcp3008 is a library to listen to the MCP3008 A/D converter chip with a RPi.
@@ -16,7 +16,7 @@ This library implements the example communication protocol described in the [dat
 Communication is made through RPi SPI port using [SpiDev](https://github.com/doceme/py-spidev)
 
 ## Wiring
-Connect the SPI data cables in the tables bellow. Choose either CE0# or CE1# to connect to CS.
+Connect the SPI data cables in the tables below. Choose either CE0# or CE1# to connect to CS.
 
 ### RPi SPI GPIOs
 
@@ -86,7 +86,7 @@ def read_all(self, norm=False):
     norm is a normalization factor, usually Vref.
     '''
 ```
-* The `modes` argument must be a list with at least one of 16 modes listed [bellow](## MCP3008 Operation Modes)
+* The `modes` argument must be a list with at least one of 16 modes listed below
 * The `norm` argument is a normalization factor that rescales raw data, usually Vref
 
 ### Fixed mode

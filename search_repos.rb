@@ -26,17 +26,20 @@ repo_list = JSON.parse(file)
 client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
 client.repositories('luxedo').each do |repo|
   puts "Processing: %{name}" % {name: repo.name}
+
   if repo_list.collect { |rp| rp["name"] }.include? repo.name
     conf = repo_list.select {|rp| rp["name"] == repo.name }[0]
     readme64 = client.readme(repo.full_name).content
     readme = Base64.decode64(readme64).strip!
     if (readme.start_with?("#{ }"))
+      # Removes the title
       readme = readme.lines[1..-1].join
     end
+    topics = client.topics(repo.full_name)[:names]
     file = front_matter % {
       title: repo.name,
       description: repo.description,
-      tags: repo.tags,
+      tags: topics,
       dropdown: conf["dropdown"],
       order: conf["order"],
       pre_content: conf["pre_content"],

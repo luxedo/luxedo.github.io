@@ -1,12 +1,12 @@
 ---
 layout: page
 title: hamurabi-almost-from-scratch
-description: 
-tags: 
+description: This is an attempt of making the game Hamurabi using modern programming languages
+tags: ["game", "hamurabi", "old-games", "console-game", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
 order: 4
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 This is an attempt of making the game [Hamurabi](https://en.wikipedia.org/wiki/Hamurabi) using modern programming languages. The idea is to time the development and track the progress and the time it took to get in each stage in this document. If possible I want to finish this project in under 12 h.

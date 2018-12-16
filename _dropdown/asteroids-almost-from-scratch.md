@@ -1,12 +1,12 @@
 ---
 layout: page
 title: asteroids-almost-from-scratch
-description: 
-tags: 
+description: This is an attempt of reproducing the game asteroids using modern programming languages
+tags: ["game", "asteroids", "old-games", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
 order: 2
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 This is an attempt of reproducing the game [asteroids](https://en.wikipedia.org/wiki/asteroids!) using modern programming languages. The idea is to track the progress and time each stage of development in this document. If possible, I want to finish this project in under 24h. Feel free to see the `diff` between the commits and maybe learn something just like I did.

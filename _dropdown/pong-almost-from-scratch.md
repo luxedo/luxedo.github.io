@@ -2,11 +2,11 @@
 layout: page
 title: pong-almost-from-scratch
 description: This is an attempt of making the game pong using modern programming languages
-tags: 
+tags: ["game", "pong", "old-games", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
 order: 3
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 This is an attempt of making the game pong using modern programming languages. The idea is to time the development and track the progress and the time it took to get in each stage in this document. If possible I want to finish this project in under 24 h.

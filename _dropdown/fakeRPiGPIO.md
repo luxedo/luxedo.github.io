@@ -2,11 +2,11 @@
 layout: page
 title: fakeRPiGPIO
 description: Fake RPi.GPIO module for testing
-tags: 
+tags: ["rpi", "gpio", "raspberry-pi", "fake", "python", "python-library"]
 dropdown: Open Source
 order: 3
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 

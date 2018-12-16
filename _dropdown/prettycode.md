@@ -2,11 +2,11 @@
 layout: page
 title: prettycode
 description: Preetycode is a simple software to covert code into pdf
-tags: 
+tags: ["pdf", "print", "print-code", "code", "highlight", "shell"]
 dropdown: Open Source
 order: 4
 ---
-<!-- Automatically generated. Run search_repo.rb to rebuild -->
+<!-- Automatically generated. Run search_repos.rb to rebuild -->
 
 
 `prettycode` is a software to pretty print code into a `pdf` file.
@@ -39,12 +39,16 @@ Running the command passing itself as argument prints the source code:
 * [npm](https://www.npmjs.com/)
 
 ## Installation
-Just install the node dependencies and you are good to go
+Clone the repo, install the node dependencies and you are good to go
 ```bash
 git clone git@github.com:luxedo/prettycode.git
 cd prettycode
 npm install
 ./prettycode FILES
+```
+Or you can install via `npm`
+```bash
+npm install -g prettycode
 ```
 
 ## License
