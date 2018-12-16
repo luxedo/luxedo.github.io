@@ -10,6 +10,6 @@ I'm a Physicist with master's in Engineering and Materials Sciences and working 
 Currently I'm studying to become a `Data Scientist` and messing a little with `web development`.
 Among the things I like there are *rock climbing*, *cycling* and *open source*.
 
-My personal projects and joke projects (lol) are available in the bar above.
+My personal projects and other stuff are available in the bar above.
 
 Feel free to pm me anytime in the links below <span style="font-size: 2em;">😉</span>

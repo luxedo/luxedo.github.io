@@ -25,7 +25,6 @@ facebook_username: "luiz.e.amaral"
 twitter_username: "ArmlessJohn404"
 linkedin_id: "luiz-amaral-85351328"
 
-theme: jekyll-theme-potato-hacker
 remote_theme: luxedo/jekyll-theme-potato-hacker
 theme_repository: "https://github.com/luxedo/jekyll-theme-potato-hacker"
 theme_base: "dark"        # Theme pallente (light | dark)
