@@ -4,7 +4,7 @@ title: pong-almost-from-scratch
 description: This is an attempt of making the game pong using modern programming languages
 tags: ["game", "pong", "old-games", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
-order: 3
+priority: 80
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

@@ -4,7 +4,7 @@ title: asteroids-almost-from-scratch
 description: This is an attempt of reproducing the game asteroids using modern programming languages
 tags: ["game", "asteroids", "old-games", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
-order: 2
+priority: 90
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

@@ -3,6 +3,7 @@ title: D&D toy projects
 description: A couple of projects I made while playing D&D
 dropdown: Other
 layout: page
+priority: 90
 ---
 ## trueDice
 The **DM** always have the upper hand when throwing dices, I decided to implement

@@ -20,26 +20,43 @@ description: My portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://luxedo.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
+# ------------------------------------------------------------------------------
+# Custom settings
+# ------------------------------------------------------------------------------
+# Useful links
 github_username: "luxedo"
 facebook_username: "luiz.e.amaral"
 twitter_username: "ArmlessJohn404"
 linkedin_id: "luiz-amaral-85351328"
 
-remote_theme: luxedo/jekyll-theme-potato-hacker
+# Theme
+# theme: jekyll-theme-potato-hacker                 # Uncomment this
+remote_theme: luxedo/jekyll-theme-potato-hacker   # Or this
 theme_repository: "https://github.com/luxedo/jekyll-theme-potato-hacker"
-theme_base: "dark"        # Theme pallente (light | dark)
+theme_base: "dark"       # Theme palette (light | dark)
 theme_switch: on         # Show color switch (on | off)
 
-# collections
+# Extra settings
+blog: on                 # Show blog tag and post list (on | off)
+avatar: on               # Show avatar (on | off)
+avatar_image: "assets/img/avatar.jpg"
+avatar_description: "My name is Luiz Amaral and I like making and breaking stuff."
+highlighter_theme: monokai  # Theme of the syntax_highlighter [base16 |
+                            # colorful | github | gruvbox | molokai |
+                            # monokai | pastie | thankful_eyes | tulip ]
+toolbar_priority:        # Order of the items in the toolbar (except for blog and home)
+  - Web
+  - Open Source
+  - Games
+  - Other
+
+# Collections
 collections:
   dropdown:
     output: true
   items:
     output: true
-
-blog: on
-avatar_image: "assets/img/avatar.jpg"
-avatar_description: "My name is Luiz Amaral and I like making and breaking stuff."
+# ------------------------------------------------------------------------------
 
 # Build settings
 excerpt_separator: "<!--more-->"

@@ -4,7 +4,7 @@ title: fakeRPiGPIO
 description: Fake RPi.GPIO module for testing
 tags: ["rpi", "gpio", "raspberry-pi", "fake", "python", "python-library"]
 dropdown: Open Source
-order: 3
+priority: 60
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

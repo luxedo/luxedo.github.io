@@ -4,7 +4,7 @@ title: hamurabi-almost-from-scratch
 description: This is an attempt of making the game Hamurabi using modern programming languages
 tags: ["game", "hamurabi", "old-games", "console-game", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
-order: 4
+priority: 70
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

@@ -4,7 +4,7 @@ title: spacewar-almost-from-scratch
 description:  This is an attempt of reproducing the game spacewar! using modern programming languages
 tags: ["game", "ship", "spacewar", "old-games", "javascript-game", "hackathon", "game-development"]
 dropdown: Games
-order: 1
+priority: 100
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

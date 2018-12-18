@@ -10,7 +10,7 @@ title: %{title}
 description: %{description}
 tags: %{tags}
 dropdown: %{dropdown}
-order: %{order}
+priority: %{priority}
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 %{pre_content}
@@ -20,7 +20,7 @@ order: %{order}
 %{post_content}
 HEREDOC
 
-file = File.read("repos.json")
+file = File.read("search_repos.json")
 repo_list = JSON.parse(file)
 
 client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
@@ -41,7 +41,7 @@ client.repositories('luxedo').each do |repo|
       description: repo.description,
       tags: topics,
       dropdown: conf["dropdown"],
-      order: conf["order"],
+      priority: conf["priority"],
       pre_content: conf["pre_content"],
       content: readme,
       post_content: conf["post_content"],

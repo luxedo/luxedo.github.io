@@ -4,7 +4,7 @@ title: RPi_mcp3008
 description: RPi_mcp3008 is a library to listen to the MCP3008 A/D converter chip, as described in the datasheet.
 tags: ["rpi", "wiring", "mcp3008", "raspberry-pi", "gpio", "analog-digital-communication", "spi", "python", "python-library"]
 dropdown: Open Source
-order: 2
+priority: 80
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 

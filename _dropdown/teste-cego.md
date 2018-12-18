@@ -4,6 +4,7 @@ description: Um teste cego com os amigos
 tags: beer blind-test blind test
 dropdown: Other
 layout: page
+priority: 80
 ---
 Teste cego de cerveja 25/10/2016
 ================================

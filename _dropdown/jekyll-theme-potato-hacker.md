@@ -4,10 +4,13 @@ title: jekyll-theme-potato-hacker
 description: A theme based on hackers and potatoes
 tags: ["jekyll", "jekyll-theme", "potatoes", "theme", "hackers", "jekyll-themes", "jekyll-site"]
 dropdown: Open Source
-order: 5
+priority: 90
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
 
+
+[![Gem Version](https://badge.fury.io/rb/jekyll-theme-potato-hacker.svg)](https://badge.fury.io/rb/jekyll-theme-potato-hacker)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
 Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes` and your sass in `_sass`. To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
@@ -15,6 +18,7 @@ Welcome to your new Jekyll theme! In this directory, you'll find the files you n
 ![screenshot](https://raw.githubusercontent.com/luxedo/jekyll-theme-potato-hacker/master/screenshot.png "screenshot")
 
 Check out the [demo](https://luxedo.github.io/jekyll-theme-potato-hacker/)
+Check out the [gem](https://rubygems.org/gems/jekyll-theme-potato-hacker)
 
 ## Installation
 
@@ -38,7 +42,14 @@ Or install it yourself as:
 
     $ gem install jekyll-theme-potato-hacker
 
+Or even use the remote theme tag in `_config.yml` if you're using github pages:
+```yaml
+remote_theme: luxedo/jekyll-theme-potato-hacker
+```
+
 ## Usage
+
+### Pages
 
 This is a simple theme I made to my portfolio/blog https://luxedo.github.io/
 There are four different categories of pages for this template:
@@ -47,16 +58,19 @@ There are four different categories of pages for this template:
 * Blog posts `_posts` folder.
 * Dropdown pages `_dropdown` folder.
 
-The dropdown menus are generated based on the [front matter](https://jekyllrb.com/docs/front-matter/) data in the files. Use the `dropdown` attribute to chose where the page will be placed.
+### Dropdown
+The dropdown menus are generated based on the [front matter](https://jekyllrb.com/docs/front-matter/) data in the files. Use the `dropdown` attribute to chose where the page will be placed. The items with the highest `priority` will be placed first.
 ```yaml
 ---
 layout: page
 title: dropdown1 item1
 description: Test page
 dropdown: dropdown1
+priority: 1
 ---
 ```
 
+### Blog
 If you want to use the blog, you need to set `blog: on` inside `_config.yml` and add a `blog.md` file in your root directory:
 ```yaml
 ---
@@ -64,6 +78,44 @@ layout: blog-index
 title: My Blog
 description: Test page
 ---
+```
+
+### \_config.yml
+Some settings are defined in `_config.yml`. Download the file in this repo
+for a complete example.
+```yaml
+# Useful links
+github_username: "<github_username>"
+facebook_username: "<facebook_username>"
+twitter_username: "<twitter_username>"
+linkedin_id: "<linkedin_id>"
+
+# Theme
+# theme: jekyll-theme-potato-hacker                 # Uncomment this
+# remote_theme: luxedo/jekyll-theme-potato-hacker   # Or this
+theme_repository: "https://github.com/luxedo/jekyll-theme-potato-hacker"
+theme_base: "dark"       # Theme palette (light | dark)
+theme_switch: on         # Show color switch (on | off)
+
+# Extra settings
+blog: on                 # Show blog tag and post list (on | off)
+avatar: on               # Show avatar (on | off)
+avatar_image: "assets/img/avatar.jpg"
+avatar_description: "My name is Popotato and I'm a HACKER."
+highlighter_theme: monokai  # Theme of the syntax_highlighter [base16 |
+                            # colorful | github | gruvbox | molokai |
+                            # monokai | pastie | thankful_eyes | tulip ]
+toolbar_priority:        # Order of the items in the toolbar (except for blog and home)
+  - dropdown2
+  - About
+  - dropdown1
+
+# Collections
+collections:
+  dropdown:
+    output: true
+  items:
+    output: true
 ```
 
 ## Contributing
