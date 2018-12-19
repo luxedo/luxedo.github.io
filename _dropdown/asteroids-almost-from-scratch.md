@@ -66,7 +66,6 @@ For now, I'll be hosting it in [github pages](https://pages.github.com/) since i
 
 ## 00:30 - Copy the `spacewar` files
 Since this game is also made with vector graphics, I copied the [spacewar](https://luxedo.github.io/spacewar-almost-from-scratch/) I made to the project folder and changed the favicon, the main color and a few tweaks. In the end it was looking like this:
-https://raw.githubusercontent.com/luxedo/asteroids-almost-from-scratch/master/report-assets/asteroid-class.gif
 ![spacewar copy](https://raw.githubusercontent.com/luxedo/asteroids-almost-from-scratch/master/report-assets/spacewar-copy.png "spacewar copy")
 
 ## 00:45 - Make screens square

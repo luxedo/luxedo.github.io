@@ -31,6 +31,8 @@ client.repositories('luxedo').each do |repo|
     conf = repo_list.select {|rp| rp["name"] == repo.name }[0]
     readme64 = client.readme(repo.full_name).content
     readme = Base64.decode64(readme64).strip!
+    repo_path = "https://raw.githubusercontent.com/#{repo.full_name}/master/"
+    readme = readme.gsub(/(\!\[[^\]]+\]\()((?!https?:\/\/)[^)]+)/, "\\1#{repo_path}\\2")
     if (readme.start_with?("#{ }"))
       # Removes the title
       readme = readme.lines[1..-1].join
