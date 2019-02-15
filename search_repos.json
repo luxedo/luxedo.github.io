@@ -4,7 +4,6 @@
     "priority": 100,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/1337-rou13773)"
   },
-
   {
     "name": "spacewar-almost-from-scratch",
     "dropdown": "Games",
@@ -25,7 +24,11 @@
     "dropdown": "Games",
     "priority": 80
   },
-
+  {
+    "name": "tetris-almost-from-scratch",
+    "dropdown": "Games",
+    "priority": 110
+  },
   {
     "name": "two-neurons-worm",
     "dropdown": "Web",
@@ -36,7 +39,6 @@
     "dropdown": "Web",
     "priority": 100
   },
-
   {
     "name": "RPistepper",
     "dropdown": "Open Source",
@@ -58,7 +60,13 @@
   {
     "name": "prettycode",
     "dropdown": "Open Source",
-    "priority": 70,
+    "priority": 110,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/prettycode)"
+  },
+  {
+    "name": "spiky-clouds",
+    "dropdown": "Open Source",
+    "priority": 120,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/prettycode)"
   },
   {
