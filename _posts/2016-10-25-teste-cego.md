@@ -1,17 +1,13 @@
 ---
-title: Teste cego de cerveja
-description: Um teste cego com os amigos
-tags: beer blind-test blind test
-dropdown: Other
-layout: page
-priority: 80
+layout: post
+title:  "Teste Cego de Cerveja"
+date:   2016-10-25 20:17:55 -0200
 ---
-Teste cego de cerveja 25/10/2016
-================================
 
-> Sábio o homem que inventou a cerveja.
+> ### "Sábio o homem que inventou a cerveja."
 >
 > Platão
+<!--more-->
 
 Teste
 -----
