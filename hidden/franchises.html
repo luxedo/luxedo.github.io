@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+
+    <title>Movie Franchises (or not)</title>
+
+    <style>
+      body {
+        background-color: #222;
+        font-family: Courier, 'Times New Roman', Times, serif;
+        overflow: hidden;
+      }
+      .container {
+        margin-top: 10px;
+      }
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      div.tooltip-donut {
+        position: absolute;
+        text-align: center;
+        padding: 0.5rem;
+        background: #bbb;
+        color: #313639;
+        border: 1px solid #313639;
+        border-radius: 8px;
+        pointer-events: none;
+        font-size: 1.3rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script>
+      function rgba([r, g, b, a]) {
+        return `rgba(${r},${g},${b},${a})`;
+      }
+      fetch('/franchises.json', {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+      })
+        .then((response) => response.json())
+        .then((treeData) => {
+          // Preprocess data
+          function getGenres(node) {
+            if (node.children.length == 0) return node.genres;
+            else if (node.hasOwnProperty('genres'))
+              return node.genres.concat(...node.children.map(getGenres));
+            else return [].concat(...node.children.map(getGenres));
+          }
+          const genres = Array.from(new Set(getGenres(treeData)));
+          const alpha = 1.0;
+          const genPalette = [
+            [255.0, 0.0, 40.800000000000004, alpha],
+            [255.0, 23.513513513513516, 0.0, alpha],
+            [255.0, 93.7837837837838, 0.0, alpha],
+            [255.0, 164.05405405405406, 0.0, alpha],
+            [255.0, 234.32432432432435, 0.0, alpha],
+            [205.4054054054054, 255.0, 0.0, alpha],
+            [140.54054054054052, 255.0, 0.0, alpha],
+            [70.27027027027027, 255.0, 0.0, alpha],
+            [0.0, 255.0, 0.0, alpha],
+            [0.0, 255.0, 69.8924731182796, alpha],
+            [0.0, 255.0, 139.7849462365592, alpha],
+            [0.0, 255.0, 204.3010752688173, alpha],
+            [0.0, 235.59782608695642, 255.0, alpha],
+            [0.0, 164.94565217391295, 255.0, alpha],
+            [0.0, 94.2934782608695, 255.0, alpha],
+            [0.0, 23.64130434782606, 255.0, alpha],
+            [41.576086956521785, 0.0, 255.0, alpha],
+            [112.22826086956528, 0.0, 255.0, alpha],
+            [182.88043478260877, 0.0, 255.0, alpha],
+            [253.53260869565227, 0.0, 255.0, alpha],
+          ]
+            .map(rgba)
+            .reduce((acc, c, i) => ({ ...acc, [genres[i]]: c }), {});
+
+          // Base elements
+          const width = 600;
+          const height = 400;
+          var svg = d3
+            .select('div.container')
+            .append('svg')
+            .attr('fill', 'red')
+            .attr('viewBox', [-width / 2 + 50, -height / 2 + 50, width, height])
+            .attr('preserveAspectRatio', 'xMidYMid meet');
+          const g = svg.append('g').attr('cursor', 'grab');
+          const root = d3.hierarchy(treeData);
+          const links = root.links();
+          const nodes = root.descendants();
+
+          // Legend
+          let ly = -60;
+          const lx = 270;
+          for (const [key, value] of Object.entries(genPalette)) {
+            svg
+              .append('circle')
+              .attr('cx', lx)
+              .attr('cy', ly)
+              .attr('r', 2)
+              .style('fill', value);
+            svg
+              .append('text')
+              .attr('x', lx + 5)
+              .attr('y', ly)
+              .text(key)
+              .style('fill', value)
+              .style('font-size', '6px')
+              .attr('alignment-baseline', 'middle');
+
+            ly += 7;
+          }
+
+          const drag = (simulation) => {
+            function dragstarted(event, d) {
+              if (!event.active) simulation.alphaTarget(0.3).restart();
+              d.fx = d.x;
+              d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+              d.fx = event.x;
+              d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+              if (!event.active) simulation.alphaTarget(0);
+              d.fx = null;
+              d.fy = null;
+            }
+
+            return d3
+              .drag()
+              .on('start', dragstarted)
+              .on('drag', dragged)
+              .on('end', dragended);
+          };
+
+          let manyForce = -1;
+          const simulation = d3
+            .forceSimulation(nodes)
+            .alphaDecay(0.1)
+            .alphaTarget(1)
+            .force(
+              'link',
+              d3
+                .forceLink(links)
+                .id((d) => d.id)
+                .distance(0)
+                .strength(0.5),
+            )
+            .force('charge', d3.forceManyBody().strength(manyForce))
+            .force('x', d3.forceX())
+            .force('y', d3.forceY());
+
+          const link = g
+            .attr('stroke', '#fff')
+            .attr('stroke-opacity', 0.2)
+            .selectAll('line')
+            .data(links)
+            .join('line');
+
+          const div = d3
+            .select('body')
+            .append('div')
+            .attr('class', 'tooltip-donut')
+            .style('background-color', '#fff')
+            .style('opacity', 0);
+
+          function findParents(node) {
+            if (node?.parent) return [node, ...findParents(node.parent)];
+            else return [];
+          }
+          function findChildren(node) {
+            if (node.children?.length > 0)
+              return [node, ...findChildren(node.children[0])];
+            else return [node];
+          }
+          function findFranchise(node) {
+            if (node)
+              if (node.children?.length > 0)
+                return [
+                  ...findParents(node.parent),
+                  node,
+                  ...findChildren(node.children[0]),
+                ];
+              else return [node, ...findParents(node.parent)];
+            else return [];
+          }
+          let nodeR = 1.0;
+          const node = g
+            .attr('fill', '#fff')
+            .attr('stroke', '#fff')
+            .attr('stroke-width', 1)
+            .selectAll('circle')
+            .data(nodes)
+            .join('circle')
+            .attr('fill', (d) => genPalette[d.data?.genres?.[0]])
+            .attr('r', nodeR)
+            .attr('stroke', (d) => genPalette[d.data?.genres?.[0]])
+            .attr('stroke-width', 3)
+            .attr('stroke-opacity', 0.1)
+            .on('mouseover', function (event, d) {
+              const franchise = findFranchise(d);
+              simulation
+                .alphaTarget(0)
+                .force('charge')
+                .strength((d2) => {
+                  if (franchise.includes(d2)) {
+                    d2.fx = d2.x;
+                    d2.fy = d2.y;
+                    return -100;
+                  }
+                  return manyForce;
+                });
+              div.transition().duration('50').style('opacity', '1.0');
+              div
+                .html(
+                  franchise
+                    .map((f) =>
+                      f == d ? `<b>${f.data.name}</b>` : f.data.name,
+                    )
+                    .join('</br>'),
+                )
+                .style('left', event.pageX + 10 + 'px')
+                .style('top', event.pageY - 15 + 'px');
+            })
+            .on('mouseout', function (e, d) {
+              simulation
+                .alpha(1)
+                .alphaTarget(1)
+                .force('charge')
+                .strength((d) => {
+                  d.fx = null;
+                  d.fy = null;
+                  return manyForce;
+                });
+              simulation.restart();
+              div.transition().duration('50').style('opacity', '0');
+            })
+            .call(drag(simulation));
+
+          simulation.on('tick', () => {
+            link
+              .attr('x1', (d) => d.source.x)
+              .attr('y1', (d) => d.source.y)
+              .attr('x2', (d) => d.target.x)
+              .attr('y2', (d) => d.target.y);
+
+            node
+              .attr('cx', (d) => d.x)
+              .attr('cy', (d) => d.y)
+              .attr('r', nodeR);
+          });
+
+          svg.call(
+            d3
+              .zoom()
+              .extent([
+                [-width / 2, -height / 2],
+                [width, height],
+              ])
+              .scaleExtent([1, 8])
+              .on('zoom', zoomed),
+          );
+
+          function dragstarted() {
+            d3.select(this).raise();
+            g.attr('cursor', 'grabbing');
+          }
+
+          function dragged(event, d) {
+            d3.select(this)
+              .attr('cx', (d.x = event.x))
+              .attr('cy', (d.y = event.y));
+          }
+
+          function dragended() {
+            g.attr('cursor', 'grab');
+          }
+
+          function zoomed({ transform }) {
+            g.attr('transform', transform);
+          }
+        });
+    </script>
+  </body>
+</html>
