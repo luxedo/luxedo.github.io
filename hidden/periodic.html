@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+
+    <title>Atom sizes</title>
+
+    <style>
+      body {
+        background-color: #ddd;
+        color: #333;
+        font-family: Arial;
+        overflow: hidden;
+      }
+      .container {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        padding-bottom: 100%;
+        vertical-align: top;
+        overflow: hidden;
+      }
+      svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: inline-block;
+      }
+      .description {
+        max-width: 720px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <div class="description">
+        <h2>O raio atômico aumenta com a quantidade de prótons?</h2>
+        <p><strong>Não</strong></p>
+        <p>
+          Na verdade, o raio atômico é dado pela distância entre o centro do
+          núcleo e a camada eletrônica mais externa, que é muito maior que o
+          núcleo.
+        </p>
+        <p>
+          Tres efeitos são importantes para determinar o raio de um átomo: A
+          quantidade de camadas eletrônicas (Período) aumenta o raio atômico; A
+          carga do núcleo (Número atômico) diminui o raio atômico; e a blindagem
+          eletrônica, que correlaciona com o Grupo do átomo, aumenta o raio
+          atômico.
+        </p>
+        <p>
+          Uma propriedade que pode servir como indicadora do raio atômico é a
+          <em>eletronegatividadde</em>, com um coeficiente de correlação de
+          Pearson de -0.866.
+        </p>
+        <p></p>
+      </div>
+      <div class="container"></div>
+    </center>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script>
+      d3.json('/hidden/periodic_table.json').then((periodic) => {
+        // Preprocess data
+        const data = periodic.data
+          .map((d, idxr) =>
+            periodic.columns.reduce(
+              (acc, col, idxc) =>
+                Object.assign(acc, { [col]: periodic.data[idxr][idxc] }),
+              {},
+            ),
+          )
+          .filter((d) => d['Atomic Radius'] != null);
+
+        // Base elements
+        const width = 300;
+        const height = 200;
+        const offsetx = 100;
+        const offsety = 10;
+        const pad = 10;
+
+        const svg = d3
+          .select('div.container')
+          .append('svg')
+          .attr(
+            'viewBox',
+            `${-offsetx - pad} ${-offsety - pad} ${width + offsetx + 2 * pad} ${
+              height + offsety + 2 * pad
+            }`,
+          )
+          .attr('preserveAspectRatio', 'xMinYMin meet')
+          .append('g');
+
+        const alpha = 1;
+        const palette = [
+          '#ff2e2e',
+          '#f93e21',
+          '#f34b11',
+          '#ec5600',
+          '#e56000',
+          '#dd6900',
+          '#d57100',
+          '#cc7800',
+          '#c37f00',
+          '#ba8500',
+          '#b08a00',
+          '#a79000',
+          '#9d9400',
+          '#939800',
+          '#899c00',
+          '#7fa000',
+          '#75a30f',
+          '#6aa622',
+          '#5ea931',
+        ];
+        const fallback_color = '#777777';
+        const gray = '#333333';
+        svg.attr('fill', gray);
+
+        const typePalette = {
+          Nonmetal: '#ff2e2e',
+          'Noble Gas': '#5ea931',
+          'Alkali Metal': '#f34b11',
+          'Alkaline Earth Metal': '#ec5600',
+          Metalloid: '#899c00',
+          Halogen: '#75a30f',
+          Metal: '#cc7800',
+          'Transition Metal': '#ba8500',
+          Lanthanide: '#9d9400',
+        };
+
+        // const columns = [
+        //   'Atomic Weight',
+        //   'Atomic Number',
+        //   'Atomic Radius',
+        //   'Electronegativity',
+        // ];
+        const columns = [
+          'Atomic Number',
+          'Atomic Weight',
+          'Atomic Radius',
+          'Electronegativity',
+        ];
+        const y = columns.reduce(
+          (acc, col) =>
+            Object.assign(acc, {
+              [col]: d3
+                .scaleLinear()
+                .domain(d3.extent(data, (d) => d[col]))
+                .range([height, 0]),
+            }),
+          {},
+        );
+        const x = d3
+          .scalePoint()
+          .range([0, width])
+          .padding(0.5)
+          .domain(columns);
+
+        function path(d) {
+          return d3.line()(columns.map((col) => [x(col), y[col](d[col])]));
+        }
+
+        // Draw parallel lines
+        svg
+          .append('g')
+          .selectAll('.lines')
+          .data(data)
+          .enter()
+          .append('path')
+          .attr('d', path)
+          .style('fill', 'none')
+          .style('stroke', (d) => palette[d.Group] || fallback_color)
+          .style('stroke-width', '3px')
+          .style('opacity', 0.6)
+          .on('mouseover', handleMouseOver)
+          .on('mouseout', handleMouseOut);
+
+        // Draw the axis:
+        svg
+          .append('g')
+          .selectAll('.axis')
+          .data(columns)
+          .enter()
+          .append('g')
+          .attr('transform', (d) => 'translate(' + x(d) + ')')
+          .each(function (d) {
+            d3.select(this).call(d3.axisLeft().scale(y[d]));
+          })
+          .style('font-weight', 'bold')
+          .append('text')
+          .text((d) => d)
+          .style('text-anchor', 'middle')
+          .style('font-weight', 'bold')
+          .style('font-size', (d) => (d == 'Atomic Radius' ? '14px' : '6px'))
+          .attr('y', -6)
+          .style('fill', gray);
+
+        // Draw group scale
+        const grOffsetY = 188;
+        const groups = Array.from(
+          new Set(
+            data.filter((d) => Number.isInteger(d.Group)).map((d) => d.Group),
+          ),
+        );
+        groups.sort((a, b) => a - b);
+        svg
+          .append('g')
+          .attr('class', 'g-scale')
+          .selectAll('.g-scale')
+          .data(groups)
+          .enter()
+          .append('circle')
+          .attr('class', (d) => `s-scale-group-${d}`)
+          .style('fill', (d) => palette[d] || fallback_color)
+          .style('opacity', 0.6)
+          .attr('cx', 0)
+          .attr('cy', (d, i) => grOffsetY - 3 * i)
+          .attr('r', 5);
+
+        // Draw Element
+        let element;
+        const elOffsetY = -10;
+        const elOffsetX = -80;
+        function drawElement(elementData) {
+          svg.selectAll('.element-group').remove();
+          element = svg
+            .append('g')
+            .attr('class', 'element-group')
+            .selectAll('.element')
+            .data([elementData])
+            .join((enter) => {
+              enter
+                .append('rect')
+                .attr('x', elOffsetX)
+                .attr('y', elOffsetY)
+                .attr('width', 85)
+                .attr('height', 85)
+                .attr('fill', (d) => typePalette[d.Type])
+                .style('opacity', 0.6);
+              enter
+                .append('rect')
+                .attr('x', elOffsetX)
+                .attr('y', elOffsetY)
+                .attr('width', 85)
+                .attr('height', 85)
+                .attr('fill', 'none')
+                .attr('stroke-width', '5px')
+                .style('stroke', gray);
+              enter
+                .append('text')
+                .attr('x', elOffsetX + 5)
+                .attr('y', elOffsetY + 45)
+                .text((d) => d.Symbol)
+                .style('text-anchor', 'start')
+                .style('font-weight', 'bold')
+                .style('font-size', '36px');
+              enter
+                .append('text')
+                .attr('x', elOffsetX + 7)
+                .attr('y', elOffsetY + 15)
+                .text((d) => d['Atomic Number'])
+                .style('text-anchor', 'start')
+                .style('font-size', '12px');
+              enter
+                .append('text')
+                .attr('x', elOffsetX + 7)
+                .attr('y', elOffsetY + 60)
+                .text((d) => d.Element)
+                .style('text-anchor', 'start')
+                .style('font-size', '11px');
+              enter
+                .append('text')
+                .attr('x', elOffsetX + 7)
+                .attr('y', elOffsetY + 73)
+                .text((d) => d['Atomic Weight'])
+                .style('text-anchor', 'start')
+                .style('font-size', '12px');
+              enter
+                .append('text')
+                .attr('x', -10)
+                .attr('y', (d) => grOffsetY + 6 - 3 * d.Group)
+                .text((d) => `Grupo: ${d.Group}`)
+                .style('text-anchor', 'end')
+                .style('font-size', '10px')
+                .style('fill', (d) => palette[d.Group] || fallback_color);
+              enter
+                .append('text')
+                .attr('x', -10)
+                .attr('y', (d) => grOffsetY + 14 - 3 * d.Group)
+                .text((d) => `Período: ${d.Period}`)
+                .style('text-anchor', 'end')
+                .style('font-size', '10px')
+                .style('fill', (d) => palette[d.Group] || fallback_color);
+              enter
+                .append('text')
+                .attr('x', -10)
+                .attr('y', (d) => grOffsetY - 2 - 3 * d.Group)
+                .text((d) => d.Type)
+                .style('text-anchor', 'end')
+                .style('font-size', '10px')
+                .style('fill', (d) => typePalette[d.Type]);
+            });
+        }
+        drawElement(data[0]);
+
+        // glow effect
+        const defs = svg.append('defs');
+        const filter = defs.append('filter').attr('id', 'glow');
+        filter
+          .append('feGaussianBlur')
+          .attr('class', 'blur')
+          .attr('stdDeviation', '1.5')
+          .attr('result', 'coloredBlur');
+
+        const feMerge = filter.append('feMerge');
+        feMerge.append('feMergeNode').attr('in', 'coloredBlur');
+        feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+        function handleMouseOver(d, i) {
+          drawElement(i);
+          d3.select(`.s-scale-group-${i.Group}`)
+            .style('opacity', 0.8)
+            .style('filter', 'brightness(200%) url(#glow)')
+            .raise();
+          d3.select(this)
+            .style('opacity', 0.8)
+            .style('filter', 'brightness(200%) url(#glow)')
+            .raise();
+        }
+        function handleMouseOut(d, i) {
+          d3.select(this)
+            .style('opacity', 0.6)
+            .style('filter', 'brightness(100%)')
+            .lower();
+          d3.select(`.s-scale-group-${i.Group}`)
+            .style('opacity', 0.6)
+            .style('filter', 'brightness(100%)')
+            .lower();
+          svg.selectAll('myAxis').raise();
+        }
+      });
+    </script>
+  </body>
+</html>
