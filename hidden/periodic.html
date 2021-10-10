@@ -5,202 +5,204 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="utf-8" />
 
-    <title>Raio Atômico</title>
+    <title>Plots Periódicos</title>
 
     <style>
       body {
         background-color: #ddd;
         color: #333;
         font-family: Arial;
-        overflow: hidden;
-      }
-      .container {
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        padding-bottom: 100%;
-        vertical-align: top;
-        overflow: hidden;
-      }
-      svg {
-        top: 0;
-        left: 0;
-        position: absolute;
-        display: inline-block;
       }
       .description {
         max-width: 720px;
+      }
+      .flex-container {
+        display: flex;
+      }
+      .flex-child {
+        flex: 1;
+      }
+      .legend {
+        max-width: 20%;
+        margin-left: 10%;
+        position: sticky;
+        top: 30%;
+        align-self: flex-start;
+      }
+      .plots {
+        max-width: 60%;
+        margin-right: 10%;
+      }
+      .legend svg {
+        max-width: 70%;
+        float: right;
       }
     </style>
   </head>
 
   <body>
     <center>
-      <div class="description">
-        <h2>O raio atômico aumenta com a quantidade de prótons?</h2>
-        <p><strong>Não</strong></p>
-        <p>
-          Na verdade, o raio atômico é dado pela distância entre o centro do
-          núcleo e a camada eletrônica mais externa, que é muito maior que o
-          núcleo.
-        </p>
-        <p>
-          Tres efeitos são importantes para determinar o raio de um átomo: A
-          quantidade de camadas eletrônicas (Período) aumenta o raio atômico; A
-          carga do núcleo (Número atômico) diminui o raio atômico; e a blindagem
-          eletrônica, que correlaciona com o Grupo do átomo, aumenta o raio
-          atômico.
-        </p>
-        <p>
-          Uma propriedade que pode servir como indicadora do raio atômico é a
-          <em>eletronegatividadde</em>, com um coeficiente de correlação de
-          Pearson de -0.866.
-        </p>
-        <p></p>
+      <div class="flex-container">
+        <div class="legend flex-child"></div>
+        <div class="plots flex-child">
+          <div class="description parallel">
+            <h2>O raio atômico aumenta com a quantidade de prótons?</h2>
+            <p><strong>Não.</strong></p>
+            <p>
+              Na verdade, o raio atômico é dado pela distância entre o centro do
+              núcleo e a camada eletrônica mais externa, que é muito maior que o
+              núcleo.
+            </p>
+            <p>
+              Três efeitos são importantes para determinar o raio de um átomo: A
+              quantidade de camadas eletrônicas (Período) aumenta o raio
+              atômico; A carga do núcleo (Número atômico) diminui o raio
+              atômico; e a blindagem eletrônica, que correlaciona com o Grupo do
+              átomo, aumenta o raio atômico.
+            </p>
+            <p>
+              Uma propriedade que pode servir como indicadora do raio atômico é
+              a
+              <em>eletronegatividadde</em>, com um coeficiente de correlação de
+              Pearson de -0.866.
+            </p>
+          </div>
+          <div class="plot-parallel"></div>
+          <div class="description scatter">
+            <h2>Propriedades Fisico-Químicas</h2>
+            <p>
+              O grupo e a <em>eletronegatividadde</em> também são interessantes
+              para encontrar clusters de propriedades físico-químicas.
+            </p>
+            <p>
+              Por exemplo, os metais alcalinos (vermelho), alcalinos terrosos
+              aparecem separados dos halogênios e não metais (verde). Ou então ,
+              notamos os lantanídeos e actnídeos (cinza) estão frequentemente
+              juntos. Observamos esses clusters nas propriedades:
+              <strong>Densidade</strong>,<strong>Ponto de fusão</strong> e
+              <strong>Ponto de ebulição</strong>.
+            </p>
+          </div>
+          <div class="plot-scatter"></div>
+        </div>
       </div>
-      <div class="container"></div>
     </center>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script>
+      const palette = [
+        '#ff2e2e',
+        '#f93e21',
+        '#f34b11',
+        '#ec5600',
+        '#e56000',
+        '#dd6900',
+        '#d57100',
+        '#cc7800',
+        '#c37f00',
+        '#ba8500',
+        '#b08a00',
+        '#a79000',
+        '#9d9400',
+        '#939800',
+        '#899c00',
+        '#7fa000',
+        '#75a30f',
+        '#6aa622',
+        '#5ea931',
+      ];
+      const fallback_color = '#777777';
+      const gray = '#333333';
+      const typePalette = {
+        'Alkali Metal': '#5ea931',
+        'Alkaline Earth Metal': '#75a30f',
+        Lanthanide: '#899c00',
+        Actinide: '#899c00',
+        Transactinide: '#9d9400',
+        'Transition Metal': '#b08a00',
+        Metal: '#c37f00',
+        Metalloid: '#d57100',
+        Nonmetal: '#e56000',
+        Halogen: '#f34b11',
+        'Noble Gas': '#ff2e2e',
+      };
+      const normalOpacity = 0.6;
+      const backgroundOpacity = 0.3;
+      const foregroudOpacity = 1.0;
+
       d3.json('/hidden/periodic_table.json').then((periodic) => {
         // Preprocess data
-        const data = periodic.data
-          .map((d, idxr) =>
-            periodic.columns.reduce(
-              (acc, col, idxc) =>
-                Object.assign(acc, { [col]: periodic.data[idxr][idxc] }),
-              {},
-            ),
-          )
-          .filter((d) => d['Atomic Radius'] != null);
-
-        // Base elements
-        const width = 300;
-        const height = 200;
-        const offsetx = 100;
-        const offsety = 10;
-        const pad = 10;
-
-        const svg = d3
-          .select('div.container')
-          .append('svg')
-          .attr(
-            'viewBox',
-            `${-offsetx - pad} ${-offsety - pad} ${width + offsetx + 2 * pad} ${
-              height + offsety + 2 * pad
-            }`,
-          )
-          .attr('preserveAspectRatio', 'xMinYMin meet')
-          .append('g');
-
-        const alpha = 1;
-        const palette = [
-          '#ff2e2e',
-          '#f93e21',
-          '#f34b11',
-          '#ec5600',
-          '#e56000',
-          '#dd6900',
-          '#d57100',
-          '#cc7800',
-          '#c37f00',
-          '#ba8500',
-          '#b08a00',
-          '#a79000',
-          '#9d9400',
-          '#939800',
-          '#899c00',
-          '#7fa000',
-          '#75a30f',
-          '#6aa622',
-          '#5ea931',
-        ];
-        const fallback_color = '#777777';
-        const gray = '#333333';
-        svg.attr('fill', gray);
-
-        const typePalette = {
-          Nonmetal: '#ff2e2e',
-          'Noble Gas': '#5ea931',
-          'Alkali Metal': '#f34b11',
-          'Alkaline Earth Metal': '#ec5600',
-          Metalloid: '#899c00',
-          Halogen: '#75a30f',
-          Metal: '#cc7800',
-          'Transition Metal': '#ba8500',
-          Lanthanide: '#9d9400',
-        };
-
-        // const columns = [
-        //   'Atomic Weight',
-        //   'Atomic Number',
-        //   'Atomic Radius',
-        //   'Electronegativity',
-        // ];
-        const columns = [
-          'Atomic Number',
-          'Atomic Weight',
-          'Atomic Radius',
-          'Electronegativity',
-        ];
-        const y = columns.reduce(
-          (acc, col) =>
-            Object.assign(acc, {
-              [col]: d3
-                .scaleLinear()
-                .domain(d3.extent(data, (d) => d[col]))
-                .range([height, 0]),
-            }),
-          {},
+        const data = periodic.data.map((d, idxr) =>
+          periodic.columns.reduce(
+            (acc, col, idxc) =>
+              Object.assign(acc, { [col]: periodic.data[idxr][idxc] }),
+            {},
+          ),
         );
-        const x = d3
-          .scalePoint()
-          .range([0, width])
-          .padding(0.5)
-          .domain(columns);
+        const svgl = d3
+          .select('div.legend')
+          .append('svg')
+          .style('fill', gray)
+          .attr('class', 'svg-legend');
+        const svgp = d3
+          .select('div.plot-parallel')
+          .append('svg')
+          .style('fill', gray)
+          .attr('class', 'svg-parallel');
+        const svgs = d3
+          .select('div.plot-scatter')
+          .append('svg')
+          .style('fill', gray)
+          .attr('class', 'svg-scatter');
 
-        function path(d) {
-          return d3.line()(columns.map((col) => [x(col), y[col](d[col])]));
+        const { drawElement } = plotLegend(data, svgl);
+        drawElement(data[0]);
+        plotParallel(data, svgp);
+        plotScatter(data, svgs);
+
+        const showData = [
+          svgl.selectAll('.g-scale-group'),
+          svgp.selectAll('.line'),
+          svgs.selectAll('.dot'),
+        ];
+        function setOpacity(el, opacity) {
+          return el.style('fill-opacity', opacity).style('opacity', opacity);
+        }
+        function mouseover(d, i) {
+          showData.forEach((d) =>
+            d.call((s) => setOpacity(s, backgroundOpacity)),
+          );
+
+          [
+            svgl.select(`.g-scale-group-${i.Group}`),
+            svgp.select(`.line-${i.Symbol}`),
+            svgs.selectAll(`.dot-${i.Symbol}`),
+          ].forEach((s) => setOpacity(s, foregroudOpacity).raise());
+          drawElement(i);
+        }
+        function mouseout(d, i) {
+          [
+            svgl.select(`.g-scale-group-${i.Group}`),
+            svgp.select(`.line-${i.Symbol}`),
+            svgs.selectAll(`.dot-${i.Symbol}`),
+          ].forEach((s) => setOpacity(s, 'none').lower());
+          showData.forEach((d) => d.call((s) => setOpacity(s, normalOpacity)));
         }
 
-        // Draw parallel lines
-        svg
-          .append('g')
-          .selectAll('.lines')
-          .data(data)
-          .enter()
-          .append('path')
-          .attr('d', path)
-          .style('fill', 'none')
-          .style('stroke', (d) => palette[d.Group] || fallback_color)
-          .style('stroke-width', '3px')
-          .style('opacity', 0.6)
-          .on('mouseover', handleMouseOver)
-          .on('mouseout', handleMouseOut);
+        svgs.selectAll('.dot').on('mouseover', mouseover);
+        svgs.selectAll('.dot').on('mouseout', mouseout);
+        svgp.selectAll('.line').on('mouseover', mouseover);
+        svgp.selectAll('.line').on('mouseout', mouseout);
+        showData.forEach((d) => d.call((s) => setOpacity(s, normalOpacity)));
+      });
 
-        // Draw the axis:
-        svg
-          .append('g')
-          .selectAll('.axis')
-          .data(columns)
-          .enter()
-          .append('g')
-          .attr('transform', (d) => 'translate(' + x(d) + ')')
-          .each(function (d) {
-            d3.select(this).call(d3.axisLeft().scale(y[d]));
-          })
-          .style('font-weight', 'bold')
-          .append('text')
-          .text((d) => d)
-          .style('text-anchor', 'middle')
-          .style('font-weight', 'bold')
-          .style('font-size', (d) => (d == 'Atomic Radius' ? '14px' : '6px'))
-          .attr('y', -6)
-          .style('fill', gray);
+      function plotLegend(data, svg) {
+        const width = 100;
+        const height = 230;
+        svg.attr('viewBox', `0 0 ${width} ${height}`).append('g');
 
         // Draw group scale
-        const grOffsetY = 188;
+        const grOffsetY = 210;
+        const grOffsetX = 85;
         const groups = Array.from(
           new Set(
             data.filter((d) => Number.isInteger(d.Group)).map((d) => d.Group),
@@ -214,17 +216,16 @@
           .data(groups)
           .enter()
           .append('circle')
-          .attr('class', (d) => `s-scale-group-${d}`)
+          .attr('class', (d) => `g-scale-group g-scale-group-${d}`)
           .style('fill', (d) => palette[d] || fallback_color)
-          .style('opacity', 0.6)
-          .attr('cx', 0)
+          .attr('cx', 95)
           .attr('cy', (d, i) => grOffsetY - 3 * i)
           .attr('r', 5);
 
         // Draw Element
         let element;
-        const elOffsetY = -10;
-        const elOffsetX = -80;
+        const elOffsetY = 10;
+        const elOffsetX = 10;
         function drawElement(elementData) {
           svg.selectAll('.element-group').remove();
           element = svg
@@ -240,7 +241,7 @@
                 .attr('width', 85)
                 .attr('height', 85)
                 .attr('fill', (d) => typePalette[d.Type])
-                .style('opacity', 0.6);
+                .attr('opacity', normalOpacity);
               enter
                 .append('rect')
                 .attr('x', elOffsetX)
@@ -281,7 +282,7 @@
                 .style('font-size', '12px');
               enter
                 .append('text')
-                .attr('x', -10)
+                .attr('x', grOffsetX)
                 .attr('y', (d) => grOffsetY + 6 - 3 * d.Group)
                 .text((d) => `Grupo: ${d.Group}`)
                 .style('text-anchor', 'end')
@@ -289,7 +290,7 @@
                 .style('fill', (d) => palette[d.Group] || fallback_color);
               enter
                 .append('text')
-                .attr('x', -10)
+                .attr('x', grOffsetX)
                 .attr('y', (d) => grOffsetY + 14 - 3 * d.Group)
                 .text((d) => `Período: ${d.Period}`)
                 .style('text-anchor', 'end')
@@ -297,7 +298,7 @@
                 .style('fill', (d) => palette[d.Group] || fallback_color);
               enter
                 .append('text')
-                .attr('x', -10)
+                .attr('x', grOffsetX)
                 .attr('y', (d) => grOffsetY - 2 - 3 * d.Group)
                 .text((d) => d.Type)
                 .style('text-anchor', 'end')
@@ -305,44 +306,210 @@
                 .style('fill', (d) => typePalette[d.Type]);
             });
         }
-        drawElement(data[0]);
+        return { drawElement };
+      }
+      function plotParallel(data, svg) {
+        /*  ==================== */
+        /*  Parallel coordinates */
+        /*  ==================== */
+        // Base elements
+        data = data.filter((d) => d['Atomic Radius'] != null);
+        const width = 300;
+        const height = 200;
+        const pad = 20;
+        svg
+          .attr(
+            'viewBox',
+            `${-pad} ${-pad} ${width + 2 * pad} ${height + 2 * pad}`,
+          )
+          .attr('preserveAspectRatio', 'xMinYMin meet')
+          .append('g');
 
-        // glow effect
-        const defs = svg.append('defs');
-        const filter = defs.append('filter').attr('id', 'glow');
-        filter
-          .append('feGaussianBlur')
-          .attr('class', 'blur')
-          .attr('stdDeviation', '1.5')
-          .attr('result', 'coloredBlur');
+        const columns = [
+          'Atomic Number',
+          'Atomic Weight',
+          'Atomic Radius',
+          'Electronegativity',
+        ];
+        const y = columns.reduce(
+          (acc, col) =>
+            Object.assign(acc, {
+              [col]: d3
+                .scaleLinear()
+                .domain(d3.extent(data, (d) => d[col]))
+                .range([height, 0]),
+            }),
+          {},
+        );
+        const x = d3
+          .scalePoint()
+          .range([0, width])
+          .padding(0.5)
+          .domain(columns);
 
-        const feMerge = filter.append('feMerge');
-        feMerge.append('feMergeNode').attr('in', 'coloredBlur');
-        feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
-
-        function handleMouseOver(d, i) {
-          drawElement(i);
-          d3.select(`.s-scale-group-${i.Group}`)
-            .style('opacity', 0.8)
-            .style('filter', 'brightness(200%) url(#glow)')
-            .raise();
-          d3.select(this)
-            .style('opacity', 0.8)
-            .style('filter', 'brightness(200%) url(#glow)')
-            .raise();
+        function path(d) {
+          return d3.line()(columns.map((col) => [x(col), y[col](d[col])]));
         }
-        function handleMouseOut(d, i) {
+
+        // Draw parallel lines
+        svg
+          .append('g')
+          .attr('class', 'lines')
+          .selectAll('.lines')
+          .data(data)
+          .enter()
+          .append('path')
+          .attr('class', (d) => `line line-${d.Symbol}`)
+          .attr('d', path)
+          .style('fill', 'none')
+          .style('stroke', (d) => palette[d.Group] || fallback_color)
+          .style('stroke-width', '3px');
+
+        // Draw the axis:
+        svg
+          .append('g')
+          .selectAll('.axis')
+          .data(columns)
+          .enter()
+          .append('g')
+          .attr('transform', (d) => 'translate(' + x(d) + ')')
+          .each(function (d) {
+            d3.select(this).call(d3.axisLeft().scale(y[d]));
+          })
+          .style('font-weight', 'bold')
+          .append('text')
+          .text((d) => d)
+          .style('fill', gray)
+          .style('text-anchor', 'middle')
+          .style('font-weight', 'bold')
+          .style('font-size', (d) => (d == 'Atomic Radius' ? '14px' : '6px'))
+          .attr('y', -6);
+      }
+
+      function plotScatter(data, svg) {
+        /*  =================== */
+        /*  Scatter Plot Matrix */
+        /*  =================== */
+        const width = 600;
+        const height = 600;
+        const padi = 5;
+        const padStartX = -80;
+        const padEndX = 30;
+        const size = 120;
+
+        svg
+          .attr('viewBox', `${padStartX} ${0} ${width + padEndX} ${height}`)
+          .append('g');
+
+        const columns = [
+          // 'Atomic Number',
+          'Electronegativity',
+          'Density',
+          'Melting Point (K)',
+          'Boiling Point (K)',
+          //'Isotopes',
+        ];
+        const xs = columns.map((c) =>
+          d3
+            .scaleLinear()
+            .domain(d3.extent(data, (d) => d[c]))
+            .rangeRound([padi / 2, size - padi / 2]),
+        );
+        const ys = xs.map((x) => x.copy().range([size - padi / 2, padi / 2]));
+
+        const axisx = d3
+          .axisBottom()
+          .ticks(6)
+          .tickSize(size * columns.length);
+        const xAxis = (g) =>
+          g
+            .selectAll('g')
+            .data(xs)
+            .join('g')
+            .attr('transform', (d, i) => `translate(${i * size},0)`)
+            .each(function (d) {
+              return d3.select(this).call(axisx.scale(d));
+            })
+            .call((g) => g.select('.domain').remove())
+            .call((g) => g.selectAll('.tick line').attr('stroke', '#ddd'))
+            .selectAll('text')
+            .attr('y', 0)
+            .attr('x', height - 120)
+            .style('text-anchor', 'start')
+            .attr('dy', '.35em')
+            .attr('transform', 'rotate(90)');
+        const axisy = d3
+          .axisLeft()
+          .ticks(6)
+          .tickSize(-size * columns.length);
+        const yAxis = (g) =>
+          g
+            .selectAll('g')
+            .data(ys)
+            .join('g')
+            .attr('transform', (d, i) => `translate(0,${i * size})`)
+            .each(function (d) {
+              return d3.select(this).call(axisy.scale(d));
+            })
+            .call((g) => g.select('.domain').remove())
+            .call((g) => g.selectAll('.tick line').attr('stroke', '#ddd'));
+
+        svg.append('g').call(xAxis);
+        svg.append('g').call(yAxis);
+
+        const cell = svg
+          .append('g')
+          .selectAll('g')
+          .data(d3.cross(d3.range(columns.length), d3.range(columns.length)))
+          .join('g')
+          .attr('class', 'dots')
+          .attr('transform', ([i, j]) => `translate(${i * size},${j * size})`);
+
+        cell
+          .append('rect')
+          .attr('fill', 'none')
+          .attr('stroke', '#aaa')
+          .attr('x', padi / 2 + 0.5)
+          .attr('y', padi / 2 + 0.5)
+          .attr('width', size - padi)
+          .attr('height', size - padi);
+
+        cell.each(function ([i, j]) {
           d3.select(this)
-            .style('opacity', 0.6)
-            .style('filter', 'brightness(100%)')
-            .lower();
-          d3.select(`.s-scale-group-${i.Group}`)
-            .style('opacity', 0.6)
-            .style('filter', 'brightness(100%)')
-            .lower();
-          svg.selectAll('myAxis').raise();
-        }
-      });
+            .selectAll('circle')
+            .data(
+              data.filter(
+                (d) =>
+                  !isNaN(d[columns[i]]) &&
+                  !isNaN(d[columns[j]]) &&
+                  d[columns[i]] != null &&
+                  d[columns[j]] != null,
+              ),
+            )
+            .join('circle')
+            .attr('cx', (d) => xs[i](d[columns[i]]))
+            .attr('cy', (d) => ys[j](d[columns[j]]))
+            .attr('class', (d) => `dot dot-${d.Symbol}`);
+        });
+
+        const circle = cell
+          .selectAll('circle')
+          .attr('r', 4.0)
+          .attr('fill', (d) => palette[d.Group] || fallback_color);
+
+        svg
+          .append('g')
+          .style('font-weight', 'bold')
+          .style('font-size', '12px')
+          .selectAll('text')
+          .data(columns)
+          .join('text')
+          .attr('transform', (d, i) => `translate(${i * size},${i * size})`)
+          .attr('x', padi)
+          .attr('y', padi)
+          .attr('dy', '.71em')
+          .text((d) => d);
+      }
     </script>
   </body>
 </html>
