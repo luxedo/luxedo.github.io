@@ -1,15 +1,22 @@
 ---
 layout: default
-title: Luxedo's
+title: Luxedo
 description: My webpage
 ---
 # My name is Luiz Eduardo Amaral
-### What am I?
-I'm a Physicist with master's in Engineering and Materials Sciences and working in software development.
+## Who am I?
+I'm Luiz Eduardo Amaral, a `Data Scientist` with a generalist mindset and a passion
+for tackling challenges across the software development landscape.  My experience spans
+data science, embedded systems, systems programming, DevOps/SRE, and web development,
+allowing me to approach problems from a holistic perspective.  Whether leading the
+software development of a pest detection smart trap that utilizes deep learning, or
+building a diagnostic device for the medical field, I bring a blend of technical 
+proficiency and a knack for innovation.
 
-Currently I'm studying to become a `Data Scientist` and messing a little with `web development`.
-Among the things I like there are *rock climbing*, *cycling* and *open source*.
-
-My personal projects and other stuff are available in the bar above.
-
-Feel free to pm me anytime in the links below <span style="font-size: 2em;">😉</span>
+When I'm not elbow-deep in code, you might find me scaling a rock face, pushing my 
+limits on a cycling trail, or lost a new corner of the world.  These activities not only 
+fuel my creativity  but also translate into valuable skills I bring back to my work – 
+like the problem-solving tenacity from rock climbing and the analytical mindset honed 
+through long-distance running.  Beyond professional pursuits, I'm an active contributor 
+to open-source projects, constantly seeking to learn and collaborate with the developer 
+community.
