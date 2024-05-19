@@ -3,7 +3,7 @@ layout: page
 title: spiky-clouds
 description: A filter to convert images into spiky images
 tags: ["needle", "drawing", "filter", "p5js"]
-dropdown: Open Source
+dropdown: Libraries
 priority: 120
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->

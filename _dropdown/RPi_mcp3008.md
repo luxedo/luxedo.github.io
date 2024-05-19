@@ -3,7 +3,7 @@ layout: page
 title: RPi_mcp3008
 description: RPi_mcp3008 is a library to listen to the MCP3008 A/D converter chip, as described in the datasheet.
 tags: ["rpi", "wiring", "mcp3008", "raspberry-pi", "gpio", "analog-digital-communication", "spi", "python", "python-library"]
-dropdown: Open Source
+dropdown: Libraries
 priority: 80
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
@@ -51,18 +51,19 @@ RPi_mcp3008 uses the `with` statement to properly handle the SPI bus cleanup.
 ```python
 import mcp3008
 with mcp3008.MCP3008() as adc:
-    print adc.read([mcp3008.CH0]) # prints raw data [CH0]
+    print(adc.read([mcp3008.CH0])) # prints raw data [CH0]
 ```
 It's possible instantiate the object normally, but it's necessary to call the close method before terminating the program.
 ```python
 import mcp3008
 adc = mcp3008.MCP3008()
-print adc.read([mcp3008.CH0]) # prints raw data [CH0]
+print(adc.read([mcp3008.CH0])) # prints raw data [CH0]
 adc.close()
 ```
-The initialization arguments are `MCP3008(bus=0, device=0)` where:
+The initialization arguments are `MCP3008(bus=0, device=0, max_speed_hz=976000)` where:
 `MCP3008(X, Y)` will open `/dev/spidev-X.Y`, same as `spidev.SpiDev.open(X, Y)`
-Both arguments are optional and have a default value of `0`
+Both arguments are optional and have a default value of `0`.
+The default max SPI driver speed is 976 kHz.
 
 ### Methods
 Currently there are two implemented methods:
@@ -96,8 +97,8 @@ Again you can normalize the data with the norm argument when calling the instanc
 ```python
 import mcp3008
 with mcp3008.MCP3008.fixed([mcp3008.CH0, mcp3008.DF0]) as adc:
-    print adc()     # prints raw data [CH0, DF0]
-    print adc(5.2)  # prints normalized data [CH0, DF0]
+    print(adc())     # prints raw data [CH0, DF0]
+    print(adc(5.2))  # prints normalized data [CH0, DF0]
 ```
 
 ## MCP3008 Operation Modes

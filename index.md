@@ -1,10 +1,9 @@
 ---
 layout: default
-title: Luxedo
+title: Luiz Eduardo Amaral
 description: My webpage
 ---
-# My name is Luiz Eduardo Amaral
-## Who am I?
+# 👋 Hi
 I'm Luiz Eduardo Amaral, a `Data Scientist` with a generalist mindset and a passion
 for tackling challenges across the software development landscape.  My experience spans
 data science, embedded systems, systems programming, DevOps/SRE, and web development,
@@ -14,7 +13,7 @@ building a diagnostic device for the medical field, I bring a blend of technical
 proficiency and a knack for innovation.
 
 When I'm not elbow-deep in code, you might find me scaling a rock face, pushing my 
-limits on a cycling trail, or lost a new corner of the world.  These activities not only 
+limits on a cycling trail, or lost a new corner of the world. These activities not only 
 fuel my creativity  but also translate into valuable skills I bring back to my work – 
 like the problem-solving tenacity from rock climbing and the analytical mindset honed 
 through long-distance running.  Beyond professional pursuits, I'm an active contributor 

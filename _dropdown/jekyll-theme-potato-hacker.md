@@ -3,7 +3,7 @@ layout: page
 title: jekyll-theme-potato-hacker
 description: A theme based on hackers and potatoes
 tags: ["jekyll", "jekyll-theme", "potatoes", "theme", "hackers", "jekyll-themes", "jekyll-site"]
-dropdown: Open Source
+dropdown: Libraries
 priority: 90
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->

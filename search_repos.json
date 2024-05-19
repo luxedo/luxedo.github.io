@@ -5,6 +5,21 @@
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/1337-rou13773)"
   },
   {
+    "name": "advent-of-code",
+    "dropdown": "Other",
+    "priority": 200
+  },
+  {
+    "name": "smarty-bird",
+    "dropdown": "Games",
+    "priority": 120
+  },
+  {
+    "name": "minesweeper-almost-from-scratch",
+    "dropdown": "Games",
+    "priority": 110
+  },
+  {
     "name": "spacewar-almost-from-scratch",
     "dropdown": "Games",
     "priority": 100
@@ -41,37 +56,61 @@
   },
   {
     "name": "RPistepper",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 100,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/RPistepper)"
   },
   {
     "name": "RPi_mcp3008",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 80,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/RPi_mcp3008)"
   },
   {
     "name": "fakeRPiGPIO",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 60,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/fakeRPiGPIO)"
   },
   {
     "name": "prettycode",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 110,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/prettycode)"
   },
   {
     "name": "spiky-clouds",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 120,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/prettycode)"
   },
   {
+    "name": "node-SPOS",
+    "dropdown": "Libraries",
+    "priority": 130,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/node-SPOS)"
+  },
+  {
+    "name": "SPOS",
+    "dropdown": "Libraries",
+    "priority": 140,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/SPOS)"
+  },
+  {
+    "name": "OCDots",
+    "dropdown": "Libraries",
+    "priority": 150,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/OCDots)"
+  },
+  {
+    "name": "NESPico",
+    "dropdown": "Libraries",
+    "priority": 150,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/NESPico)"
+  },
+  {
     "name": "jekyll-theme-potato-hacker",
-    "dropdown": "Open Source",
+    "dropdown": "Libraries",
     "priority": 90,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/jekyll-theme-potato-hacker)"
   }

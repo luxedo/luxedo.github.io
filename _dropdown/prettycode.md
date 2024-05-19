@@ -3,7 +3,7 @@ layout: page
 title: prettycode
 description: Preetycode is a simple software to covert code into pdf
 tags: ["pdf", "print", "print-code", "code", "highlight", "shell"]
-dropdown: Open Source
+dropdown: Libraries
 priority: 110
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
