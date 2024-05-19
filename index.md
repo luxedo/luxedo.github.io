@@ -3,6 +3,7 @@ layout: default
 title: Luiz Eduardo Amaral
 description: My webpage
 ---
+
 [luizamaral306@gmail.com](luizamaral306@gmail.com)
 
 # Hi there 👋
@@ -17,33 +18,91 @@ description: My webpage
 
 When I'm not elbow-deep in code, you'll likely find me:
 
-* ⛰️ Exploring the outdoors: Nature is my happy place, and there's nothing quite like a good hike or adventure to clear my head and spark new ideas.
+- ⛰️ Exploring the outdoors: Nature is my happy place, and there's nothing quite like a good hike or adventure to clear my head and spark new ideas.
 
-* 🍔 Whipping up delicious meals: Food is more than just sustenance – it's an experience! I love experimenting in the kitchen and sharing my culinary creations with friends and family.
+- 🍔 Whipping up delicious meals: Food is more than just sustenance – it's an experience! I love experimenting in the kitchen and sharing my culinary creations with friends and family.
 
-* ✈️ Venturing off on new travel adventures: The world is a vast and exciting place, and I'm always eager to explore new cultures, landscapes, and experiences.
+- ✈️ Venturing off on new travel adventures: The world is a vast and exciting place, and I'm always eager to explore new cultures, landscapes, and experiences.
 
-* 🏃🏻‍♂️ Enjoying a good challenge: running offers a chance to truly push me forward. Each stride pushes me past my perceived limits. Every run is a battle, a test of my will, leaving me exhilarated by the victories I achieve.
+- 🏃🏻‍♂️ Enjoying a good challenge: running offers a chance to truly push me forward. Each stride pushes me past my perceived limits. Every run is a battle, a test of my will, leaving me exhilarated by the victories I achieve.
 
 <a href="https://www.linkedin.com/in/luiz-nishino-amaral/" target="blank">Let's chat! Contact me at <img style="display:inline;" src="assets/img/LI-In-Bug.png"  width="30"/></a>
 
-
 [![Luxedo GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=luxedo&show_icons=true&theme=shadow_green#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
 
-
 ## Some of my projects
+
 ### Open Source Libraries
+
 One of my joys is to build a tool that is useful for myself and take an extra step to publish it for everyone to use.
 I have several published libraries and each one of them has helped me acomplish something:
-> #### Picamip
+
+> #### 🍓📸 Picamip
+>
 > Python simple Raspberry-Pi camera module web interface
 > [https://pypi.org/project/picamip/](https://pypi.org/project/picamip/)
 
 ### Games Almost From Scratch
-Here's a long term project of mine: Rebuilding games without any game engine:
 
-|**Minesweeper** [![Minesweeper](https://github.com/luxedo/minesweeper-almost-from-scratch/blob/master/public/assets/images/opengraph.png?raw=true){:width="240px"}](https://luxedo.github.io/minesweeper-almost-from-scratch/)|**Tetris** [![Tetris](https://github.com/luxedo/tetris-almost-from-scratch/blob/master/public/assets/images/opengraph.png?raw=true){:width="240px"}](https://tetris-almost-from-scratch.firebaseapp.com/)|
-|**Asteroids** [![Asteroids](https://github.com/luxedo/asteroids-almost-from-scratch/blob/master/docs/assets/opengraph.png?raw=true){:width="240px"}](https://asteroids-almost-from-scratch.herokuapp.com/)|**Pong** [![Pong](https://github.com/luxedo/pong-almost-from-scratch/blob/master/assets/opengraph.png?raw=true){:width="240px"}](https://luxedo.github.io/pong-almost-from-scratch/)|
-|**Spacewar!** [![Spacewar!](https://github.com/luxedo/spacewar-almost-from-scratch/blob/master/assets/opengraph.png?raw=true){:width="240px"}](https://luxedo.github.io/spacewar-almost-from-scratch/) |**Hamurabi** [![Hamurabi](https://github.com/luxedo/hamurabi-almost-from-scratch/blob/master/assets/opengraph.png?raw=true){:width="240px"}](https://luxedo.github.io/hamurabi-almost-from-scratch/)|
+A long term project of mine is rebuilding games without any game engine. Here's the ones I made so far:
 
+<div>
+  <div class="flex-parent">
+    <div class="crop-games">
+      <a href="https://luxedo.github.io/minesweeper-almost-from-scratch/">
+        <b>Minesweeper</b>
+        <img src="https://github.com/luxedo/minesweeper-almost-from-scratch/blob/master/public/assets/images/opengraph.png?raw=true"/>
+      </a>
+    </div>
+    <div class="crop-games">
+      <a href="https://tetris-almost-from-scratch.firebaseapp.com/">
+        <b>Tetris</b>
+        <img src="https://github.com/luxedo/tetris-almost-from-scratch/blob/master/public/assets/images/opengraph.png?raw=true"/>
+      </a>
+    </div>
+    <div class="crop-games">
+      <a href="https://asteroids-almost-from-scratch.herokuapp.com/">
+        <b>Asteroids</b>
+        <img src="https://github.com/luxedo/asteroids-almost-from-scratch/blob/master/docs/assets/opengraph.png?raw=true"/>
+      </a>
+    </div>
+  </div>
+  <div class="flex-parent margin-top-2">
+    <div class="crop-games">
+      <a href="https://luxedo.github.io/pong-almost-from-scratch/">
+        <b>Pong</b>
+        <img src="https://github.com/luxedo/pong-almost-from-scratch/blob/master/assets/opengraph.png?raw=true"/>
+      </a>
+    </div>
+    <div class="crop-games">
+      <a href="https://luxedo.github.io/spacewar-almost-from-scratch/">
+        <b>Spacewar!</b>
+        <img src="https://github.com/luxedo/spacewar-almost-from-scratch/blob/master/assets/opengraph.png?raw=true"/>
+      </a>
+    </div>
+    <div class="crop-games">
+      <a href="https://luxedo.github.io/hamurabi-almost-from-scratch/">
+        <b>Hamurabi</b>
+        <img src="https://github.com/luxedo/hamurabi-almost-from-scratch/blob/master/assets/opengraph.png?raw=true"/>
+      </a>
+    </div>
+  </div>
 
+</div>
+
+<!-- ==================STYLES===================== -->
+<style>
+.flex-parent {
+  display: flex;
+}
+
+.margin-top-2 {
+  margin-top: 2em;
+}
+
+.crop-games {
+  overflow: hidden;
+  width: 50%;
+  height: 150px;
+}
+</style>

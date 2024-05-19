@@ -65,6 +65,7 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+    # parse_block_html: true
 exclude:
   - Gemfile
   - Gemfile.lock
