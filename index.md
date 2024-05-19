@@ -92,7 +92,6 @@ A long term project of mine is rebuilding games without any game engine. Here's 
 Sometimes I get some ideas in my mind that I have to put it into code. It happens that I have many of those projects
 and you can check them in the projects tab above. Feel free to check the sample ones below:
 
-
 <div class="crop-projects">
   <a href="https://pypi.org/project/esb/">
     <h3>ElfScript Brigade</h3>
@@ -115,7 +114,7 @@ My wife wanted to learn some pixelart and we came up with the idea of copying [F
 Of course, it couldn't be just a copy, so we decided to add a genetic algorithm training mode to see the game play itself.
 
 <div class="crop-projects">
-  <a href="https://smarty-bird.firebaseapp.com/">
+  <a href="https://twitter.com/botinho_termo">
     <h3>Botinho do Termo</h3>
     <img src="assets/img/botinho.png"/>
   </a>
@@ -124,6 +123,15 @@ Of course, it couldn't be just a copy, so we decided to add a genetic algorithm 
 When the Brazilian version of [Wordle](https://en.wikipedia.org/wiki/Wordle), named [Termo](https://term.ooo/) got popular, 
 I was the first developer to build an automatic solver and posted the solutions daily on Twitter.
 In this project I worked with NLP to create my own version of a solver that hardly failed.
+
+<div class="crop-projects">
+  <a href="https://rubygems.org/gems/jekyll-theme-potato-hacker">
+    <h3>Jekyll Theme Potato Hacker</h3>
+    <img src="assets/img/potato.png"/>
+  </a>
+</div>
+This Jekyll Theme that you're seeing right now I made! It was a project for learning how the themes worked and I ended up
+liking it. It even has some generative art (the sidebar to the left changes!). This is by far the project that I have the most GitHub stars and my only [Ruby Gem](https://rubygems.org/) package.
 
 <br/>
 <br/>
