@@ -27,7 +27,7 @@ url: "http://luxedo.github.io/" # the base hostname & protocol for your site, e.
 github_username: "luxedo"
 facebook_username: "luiz.e.amaral"
 twitter_username: "_luxedo"
-linkedin_username: "luiz-nishino-amaral"
+linkedin_id: "luiz-nishino-amaral"
 
 # Theme
 # theme: jekyll-theme-potato-hacker                 # Uncomment this
