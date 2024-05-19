@@ -3,7 +3,7 @@ layout: page
 title: NESPico
 description: NES Controller USB interface
 tags: []
-dropdown: Libraries
+dropdown: Projects
 priority: 150
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->

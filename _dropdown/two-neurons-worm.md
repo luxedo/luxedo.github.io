@@ -3,7 +3,7 @@ layout: page
 title: two-neurons-worm
 description:  This is a simulation for creating a worm that find it's food using two neurons. 
 tags: ["machine-learning", "worm", "perceptron", "food", "elegans", "neural-network", "random-walk", "genetic-algorithm"]
-dropdown: Web
+dropdown: Projects
 priority: 90
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->

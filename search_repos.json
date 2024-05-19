@@ -1,12 +1,23 @@
-[{
-    "name": "1337-rou13773",
-    "dropdown": "Other",
-    "priority": 100,
-    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/1337-rou13773)"
+[
+  {
+    "name": "NESPico",
+    "dropdown": "Projects",
+    "priority": 150,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/NESPico)"
+  },
+  {
+    "name": "two-neurons-worm",
+    "dropdown": "Projects",
+    "priority": 90
+  },
+  {
+    "name": "calcuMLator",
+    "dropdown": "Projects",
+    "priority": 100
   },
   {
     "name": "advent-of-code",
-    "dropdown": "Other",
+    "dropdown": "Projects",
     "priority": 200
   },
   {
@@ -43,16 +54,6 @@
     "name": "tetris-almost-from-scratch",
     "dropdown": "Games",
     "priority": 110
-  },
-  {
-    "name": "two-neurons-worm",
-    "dropdown": "Web",
-    "priority": 90
-  },
-  {
-    "name": "calcuMLator",
-    "dropdown": "Web",
-    "priority": 100
   },
   {
     "name": "RPistepper",
@@ -101,12 +102,6 @@
     "dropdown": "Libraries",
     "priority": 150,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/OCDots)"
-  },
-  {
-    "name": "NESPico",
-    "dropdown": "Libraries",
-    "priority": 150,
-    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/NESPico)"
   },
   {
     "name": "jekyll-theme-potato-hacker",

@@ -3,7 +3,7 @@ layout: page
 title: advent-of-code
 description: Solutions for Advent of Code
 tags: []
-dropdown: Other
+dropdown: Projects
 priority: 200
 ---
 <!-- Automatically generated. Run search_repos.rb to rebuild -->
