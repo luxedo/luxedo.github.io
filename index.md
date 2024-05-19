@@ -123,6 +123,7 @@ Of course, it couldn't be just a copy, so we decided to add a genetic algorithm 
 <br/>
 When the Brazilian version of [Wordle](https://en.wikipedia.org/wiki/Wordle), named [Termo](https://term.ooo/) got popular, 
 I was the first developer to build an automatic solver and posted the solutions daily on Twitter.
+In this project I worked with NLP to create my own version of a solver that hardly failed.
 
 <br/>
 <br/>

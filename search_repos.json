@@ -1,9 +1,20 @@
 [
   {
+    "name": "esb",
+    "dropdown": "Projects",
+    "priority": 200
+  },
+  {
     "name": "NESPico",
     "dropdown": "Projects",
     "priority": 150,
     "post_content": "---\nCheck out the [repo](https://github.com/luxedo/NESPico)"
+  },
+  {
+    "name": "botinho-do-termo",
+    "dropdown": "Projects",
+    "priority": 120,
+    "post_content": "---\nCheck out the [repo](https://github.com/luxedo/botinho-do-termo)"
   },
   {
     "name": "two-neurons-worm",
@@ -14,11 +25,6 @@
     "name": "calcuMLator",
     "dropdown": "Projects",
     "priority": 100
-  },
-  {
-    "name": "advent-of-code",
-    "dropdown": "Projects",
-    "priority": 200
   },
   {
     "name": "smarty-bird",

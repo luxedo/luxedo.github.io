@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'base64'
 require 'json'
 require 'octokit'
@@ -35,7 +36,7 @@ client.repositories('luxedo').each do |repo|
     readme = readme.gsub(%r{(!\[[^\]]+\]\()((?!https?://)[^)]+)}, "\\1#{repo_path}\\2")
     if readme.start_with?('')
       # Removes the title
-      readme = readme.lines[1..-1].join
+      readme = readme.lines[1..].join.force_encoding('UTF-8')
     end
     topics = client.topics(repo.full_name)[:names]
     file = format(front_matter, title: repo.name, description: repo.description, tags: topics,
