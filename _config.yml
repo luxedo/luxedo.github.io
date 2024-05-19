@@ -27,6 +27,7 @@ url: "http://luxedo.github.io/" # the base hostname & protocol for your site, e.
 github_username: "luxedo"
 facebook_username: "luiz.e.amaral"
 twitter_username: "_luxedo"
+linkedin_username: "luiz-nishino-amaral"
 
 # Theme
 # theme: jekyll-theme-potato-hacker                 # Uncomment this
@@ -39,13 +40,13 @@ theme_switch: on         # Show color switch (on | off)
 blog: on                 # Show blog tag and post list (on | off)
 avatar: on               # Show avatar (on | off)
 avatar_image: "assets/img/avatar.jpg"
-avatar_description: "My name is Luiz Amaral and I like making and breaking stuff."
+avatar_description: "The world is a complex puzzle, and I love using data and code to decode it. Data scientist and developer by day, problem-solver always."
 highlighter_theme: monokai  # Theme of the syntax_highlighter [base16 |
                             # colorful | github | gruvbox | molokai |
                             # monokai | pastie | thankful_eyes | tulip ]
 toolbar_priority:        # Order of the items in the toolbar (except for blog and home)
   - Web
-  - Open Source
+  - Libraries
   - Games
   - Other
 

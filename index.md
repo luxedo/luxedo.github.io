@@ -3,7 +3,7 @@ layout: default
 title: Luiz Eduardo Amaral
 description: My webpage
 ---
-luizamaral306@gmail.com
+[luizamaral306@gmail.com](luizamaral306@gmail.com)
 
 # Hi there 👋
 
@@ -25,8 +25,15 @@ When I'm not elbow-deep in code, you'll likely find me:
 
 * 🏃🏻‍♂️ Enjoying a good challenge: running offers a chance to truly push me forward. Each stride pushes me past my perceived limits. Every run is a battle, a test of my will, leaving me exhilarated by the victories I achieve.
 
-<a href="https://www.linkedin.com/in/luiz-nishino-amaral/" target="blank">Let's chat! Contact me at &nbsp; <img src="LI-In-Bug.png"  width="30"></img></a>
+<a href="https://www.linkedin.com/in/luiz-nishino-amaral/" target="blank">Let's chat! Contact me at &nbsp; <img src="img/LI-In-Bug.png"  width="30"></img></a>
 
 
 [![Luxedo GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=luxedo&show_icons=true&theme=shadow_green#gh-dark-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
-[![Luxedo GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=luxedo&show_icons=true&theme=shadow_green#gh-light-mode-only)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
+
+
+## Some of my projects
+### Games Almost From Scratch
+Here is a long term project of mine: Rebuild games without any game engine. 
+I managed to publish some already:
+[![Minesweeper](https://github.com/luxedo/minesweeper-almost-from-scratch/blob/master/public/assets/images/opengraph.png?raw=true)](https://luxedo.github.io/minesweeper-almost-from-scratch/)
+
