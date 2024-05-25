@@ -10,7 +10,7 @@ description: My webpage
 
 ## 🚀 About Me
 
-🎓 I'm **Luiz**, a **Data Scientist** and **Developer**. My fascination with code started way back, and over 10 years I've honed my skills in building and maintaining vision-based sensor systems. But my true passion lies in the exciting world where AI meets the physical realm.
+🎓 I'm **Luiz**, a **Data Scientist**, **Developer** and **Numpy Contributor**. My fascination with code started way back, and over 10 years I've honed my skills in building and maintaining vision-based sensor systems. But my true passion lies in the exciting world where AI meets the physical realm.
 
 🏆 When I need a mental challenge, I turn to the world of competitive programming and Capture the Flag (CTF) competitions. The thrill of solving problems under pressure and the camaraderie of the competitive coding community really energize me.
 
