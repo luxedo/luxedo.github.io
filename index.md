@@ -10,13 +10,13 @@ description: My webpage
 
 ## 🚀 About Me
 
-🎓 I'm **Luiz**, a **Data Scientist**, **Developer** and **Numpy Contributor**. My fascination with code started way back, and over 10 years I've honed my skills in building and maintaining vision-based sensor systems. But my true passion lies in the exciting world where AI meets the physical realm.
+🎓 I'm **Luiz**, a **Data Scientist**, **Developer** and **Numpy Contributor**. My fascination with code started way back, and over the past 10 years I've honed my skills in building and maintaining vision-based sensor systems. But my true passion lies in the exciting world where AI meets the physical realm.
 
 🏆 When I need a mental challenge, I turn to the world of competitive programming and Capture the Flag (CTF) competitions. The thrill of solving problems under pressure and the camaraderie of the competitive coding community really energize me.
 
-👨‍💻 Beyond the code, I'm a firm believer in the power of open-source communities. Contributing to open-source projects in Python, Rust, Elixir, Ruby and JavaScript fuels my fire (I've even got packages published in some of them!). You might also find my tinkering on projects for Google, MDN, and scikit-learn – or maybe somewhere else in the vast GitHub universe.
+👨‍💻 Beyond the code, I'm a firm believer in the power of open-source communities. Contributing to open-source projects in Python, Rust, Elixir, Ruby and JavaScript fuels my fire (I've even got packages published in some of them!). You might also find my contributions to [Numpy]([url](https://github.com/numpy/numpy)), [SciPy]([url](https://github.com/scipy/scipy)) - or maybe somewhere else in the vast GitHub universe.
 
-When I'm not elbow-deep in code, you'll likely find me:
+When I'm not elbow-deep in code, you'll likely find me with my wife and dog:
 
 - ⛰️ Exploring the outdoors: Nature is my happy place, and there's nothing quite like a good hike or adventure to clear my head and spark new ideas.
 
@@ -25,6 +25,8 @@ When I'm not elbow-deep in code, you'll likely find me:
 - ✈️ Venturing off on new travel adventures: The world is a vast and exciting place, and I'm always eager to explore new cultures, landscapes, and experiences.
 
 - 🏃🏻‍♂️ Enjoying a good challenge: running offers a chance to truly push me forward. Each stride pushes me past my perceived limits. Every run is a battle, a test of my will, leaving me exhilarated by the victories I achieve.
+
+- 🧗Scrambling up a cliff face: Rock climbing provides a thrilling combination of physical exertion, mental focus, and the reward of reaching the summit.
 
 <a href="https://www.linkedin.com/in/luiz-nishino-amaral/" target="blank">Let's chat! Contact me at <img style="display:inline;" src="assets/img/LI-In-Bug.png"  width="30"/></a>
 
